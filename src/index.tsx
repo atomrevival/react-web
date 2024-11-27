@@ -1,13 +1,13 @@
-import { createRoot } from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router-dom";
 
-import { router } from './router';
+import { router } from "./router";
 
-const rootElement = document.getElementById('root');
+const rootElement = document.getElementById("root");
 
 function init() {
   if (!rootElement) {
-    throw new Error('Unable to mount react, root element is missing');
+    throw new Error("Unable to mount react, root element is missing");
   }
 
   const root = createRoot(rootElement);

@@ -1,4 +1,4 @@
-import { Fetch } from './Fetch';
+import { Fetch } from "./Fetch";
 
 export class FetchHelper extends Fetch {
   static get<ResponseData>(url: string, options?: RequestInit) {
@@ -13,7 +13,7 @@ export class FetchHelper extends Fetch {
     return FetchHelper.request<ResponseData>(url, {
       ...options,
       body: JSON.stringify(body),
-      method: 'POST',
+      method: "POST",
     });
   }
 
@@ -25,7 +25,7 @@ export class FetchHelper extends Fetch {
     return FetchHelper.request<ResponseData>(url, {
       ...options,
       body: JSON.stringify(body),
-      method: 'PUT',
+      method: "PUT",
     });
   }
 
@@ -37,11 +37,14 @@ export class FetchHelper extends Fetch {
     return FetchHelper.request<ResponseData>(url, {
       ...options,
       body: JSON.stringify(body),
-      method: 'PATCH',
+      method: "PATCH",
     });
   }
 
   static delete<ResponseData>(url: string, options?: RequestInit) {
-    return FetchHelper.request<ResponseData>(url, { ...options, method: 'DELETE' });
+    return FetchHelper.request<ResponseData>(url, {
+      ...options,
+      method: "DELETE",
+    });
   }
 }

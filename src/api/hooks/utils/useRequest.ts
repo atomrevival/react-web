@@ -1,9 +1,19 @@
-import {
-  useCallback, useEffect, useRef, useState,
-} from 'react';
+import { useCallback, useEffect, useRef, useState } from "react";
 
+interface UseRequestOptions {
+  /**
+   * Fetches data on first mount
+   * @default `true`
+   */
+  hasInitialFetch?: boolean;
+}
+
+/**
+ * A light version of react-query with no auto-refetching logic
+ */
 export function useRequest<TData>(
   request: (...args: unknown[]) => Promise<TData>,
+  { hasInitialFetch } = { hasInitialFetch: true } as UseRequestOptions,
 ) {
   const hasInitiallyRequestedData = useRef<boolean>(false);
 
@@ -29,15 +39,15 @@ export function useRequest<TData>(
     } finally {
       setLoading(false);
     }
-  }, [request]);
+  }, [isLoading, request]);
 
   useEffect(() => {
-    if (!hasInitiallyRequestedData.current) {
+    if (hasInitialFetch && !hasInitiallyRequestedData.current) {
       requestData();
 
       hasInitiallyRequestedData.current = true;
     }
-  }, [requestData]);
+  }, [hasInitialFetch, requestData]);
 
   return {
     data,

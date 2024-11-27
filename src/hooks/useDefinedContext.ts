@@ -1,6 +1,6 @@
-import { type Context, useContext } from 'react';
+import { type Context, useContext } from "react";
 
-import { isDefined } from '../utils/isDefined';
+import { isDefined } from "../utils/isDefined";
 
 export function useDefinedContext<T>(context: Context<T>): NonNullable<T> {
   const _context = useContext(context);

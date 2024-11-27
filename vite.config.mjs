@@ -1,12 +1,12 @@
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
 
 export default defineConfig({
-  "server": {
-    "open": true,
-    "port": 3300
+  server: {
+    open: true,
+    port: 3300,
   },
-  "preview": {
-    "open": true,
-    "port": 5100
-  }
-})
+  preview: {
+    open: true,
+    port: 5100,
+  },
+});

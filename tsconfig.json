@@ -6,9 +6,10 @@
       "ESNext"
     ],
     "target": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "bundler",
     "types": [
       "node",
+      "vite/client"
     ],
     "sourceRoot": "src",
     "noEmit": true,
