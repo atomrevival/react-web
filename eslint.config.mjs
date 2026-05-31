@@ -2,6 +2,7 @@ import { fixupConfigRules } from "@eslint/compat";
 import typescriptEslint from "@typescript-eslint/eslint-plugin";
 import globals from "globals";
 import tsParser from "@typescript-eslint/parser";
+import react from "eslint-plugin-react";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import js from "@eslint/js";
@@ -17,12 +18,11 @@ const compat = new FlatCompat({
 });
 
 export default [
-  ...fixupConfigRules(
-    compat.extends("airbnb", "plugin:react-hooks/recommended"),
-  ),
+  ...fixupConfigRules(compat.extends("plugin:react-hooks/recommended")),
   {
     files: ["**/*.{js,jsx,ts,tsx,mjs}"],
     plugins: {
+      react,
       "@typescript-eslint": typescriptEslint,
     },
 
@@ -74,12 +74,12 @@ export default [
         },
       ],
 
-      "react/jsx-filename-extension": [
+      /*"react/jsx-filename-extension": [
         2,
         {
           extensions: [".js", ".jsx", ".ts", ".tsx"],
         },
-      ],
+      ],*/
 
       "react/react-in-jsx-scope": "off",
       "import/extensions": "off",
